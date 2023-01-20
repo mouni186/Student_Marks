@@ -8,11 +8,30 @@ const controller = require('./controller/index')
 app.use(bodyParser.json());
 app.use(cors());
 
+// Signup and Login
+app.post('/Signup',controller.signupDetail);  
+app.post('/login',controller.loginDetail);    
 
 
-app.post('/remainder-signup',controller.remainderSignup);  //email,name,password                            --
-app.post('/remainder-login',controller.remainderLogin);    //email,password                                userid
-app.post('/add-remainder',controller.remainderDetails); 
+// Operator function
+app.post('/add',controller.addOperator); 
+app.post('/minus',controller.minusOperator);
+app.post('/times',controller.timesOperator);
+app.post('/dividedby',controller.dividedbyOperator);
+
+
+
+// Numeric function
+app.post('/one',controller.valueOne);
+app.post('/two',controller.valueTwo);
+app.post('/three',controller.valueThree);
+app.post('/four',controller.valueFour);
+app.post('/five',controller.valueFive);
+app.post('/six',controller.valueSix);
+app.post('/seven',controller.valueSeven);
+app.post('/eight',controller.valueEight);
+app.post('/nine',controller.valueNine);
+
 
 
 const port = process.env.PORT || 6000;
